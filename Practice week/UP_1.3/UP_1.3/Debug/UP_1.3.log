@@ -1,0 +1,2 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\up_1.3\up_1.3\main.cpp(13): error C2440: 'initializing': cannot convert from 'double' to 'float *'
