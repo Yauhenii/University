@@ -1,0 +1,13 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(84): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(86): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(95): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(102): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(106): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(110): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(116): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(120): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(131): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab3_test\uplab3_test\main.cpp(135): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\zhenyamordan\source\repos\UPLab3_Test\Debug\UPLab3_Test.exe : fatal error LNK1120: 1 unresolved externals

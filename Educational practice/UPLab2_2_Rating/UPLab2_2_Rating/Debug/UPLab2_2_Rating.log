@@ -1,0 +1,12 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(82): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(161): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(162): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(163): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(164): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(66): warning C4101: 'angle': unreferenced local variable
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(218): warning C4101: 'k': unreferenced local variable
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(218): warning C4101: 'i': unreferenced local variable
+c:\users\zhenyamordan\source\repos\uplab2_2_rating\uplab2_2_rating\main.cpp(217): warning C4101: 'text': unreferenced local variable
+  UPLab2_2_Rating.vcxproj -> C:\Users\zhenyamordan\source\repos\UPLab2_2_Rating\Debug\UPLab2_2_Rating.exe
