@@ -1,0 +1,16 @@
+﻿  KWnd.cpp
+  main.cpp
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(84): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(86): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(95): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(102): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(106): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(110): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(116): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(120): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(131): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(135): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating code
+  All 6 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  UPLab2_1_Sinus.vcxproj -> C:\Users\zhenyamordan\source\repos\UPLab2_1_Sinus\Release\UPLab2_1_Sinus.exe

@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(121): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(122): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(58): warning C4101: 'x': unreferenced local variable
+c:\users\zhenyamordan\source\repos\uplab2_1_sinus\uplab2_1_sinus\main.cpp(198): warning C4101: 'text': unreferenced local variable
+  UPLab2_1_Sinus.vcxproj -> C:\Users\zhenyamordan\source\repos\UPLab2_1_Sinus\Debug\UPLab2_1_Sinus.exe

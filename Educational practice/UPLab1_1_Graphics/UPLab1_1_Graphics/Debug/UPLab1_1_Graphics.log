@@ -1,0 +1,21 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(60): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(61): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(80): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(81): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(82): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(85): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(87): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(88): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(92): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(93): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(97): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(98): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(99): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(100): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(103): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(111): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\zhenyamordan\source\repos\uplab1_1_graphics\uplab1_1_graphics\main.cpp(171): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  UPLab1_1_Graphics.vcxproj -> C:\Users\zhenyamordan\source\repos\UPLab1_1_Graphics\Debug\UPLab1_1_Graphics.exe
