@@ -1,0 +1,391 @@
+#pragma warning(disable:4996)
+#undef UNICODE
+#define _USE_MATH_DEFINES
+#include <windows.h>
+#include "KWnd.h"
+#include <string>
+#include <sstream>
+#include <vector>
+#include "resource.h"
+#include <cmath>
+#include <ctime>
+
+using namespace std;
+
+//consts
+const int INTERVAL = 10;
+//wolf directions
+const int WOLF_D = 4; //wolf directions 
+//shelves
+const pair<int, int> LeftUpH(0, 340);
+const pair<int, int> LeftUpL(300, 420);
+const pair<int, int> LeftDownH(0, 540);
+const pair<int, int> LeftDownL(300, 620);
+const pair<int, int> RightUpH(1000, 340);
+const pair<int, int> RightUpL(700, 420);
+const pair<int, int> RightDownH(1000, 540);
+const pair<int, int> RightDownL(700, 620);
+
+pair<int, int> ShelvesH[WOLF_D] = { LeftUpH ,LeftDownH ,RightUpH,RightDownH };
+pair<int, int> ShelvesL[WOLF_D] = { LeftUpL ,LeftDownL ,RightUpL,RightDownL };
+
+
+//TEMP FUNC
+void fillString(string& str, double x, double y);
+//
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+int setCurrentWolf(bool left, bool up); //choose wolf type
+void DrawShelves(HDC &hDC, HPEN hPen);
+HRGN& CreateBallRgn(HDC hDC, int x, int y, int width, int height, double angle, int iSpeed, int iTime);
+HRGN& CreateBallBodyRgn(HDC hDC, int x, int y, int width, int height, double angle);
+HRGN& CreateBallSpaceRgn(HDC hDC, int x, int y, int width, int height, double angle, int iSpeed, int iTime);
+double RotateX(int x, int y, double angle);
+double RotateY(int x, int y, double angle);
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+{
+	MSG msg;
+	KWnd mainWnd("MyWin", hInstance, nCmdShow, WndProc, NULL, 0, 0, 1000, 800);
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return (msg.wParam);
+}
+
+
+#define ALPHA acos(4/sqrt(241))
+#define G 9.81
+#define v0 sqrt(iCurrentSpeedX*iCurrentSpeedX + iCurrentSpeedY * iCurrentSpeedY) / ((float)INTERVAL/(float)1000)
+
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	HDC hDC;
+	int userReply;
+	//sx,sy
+	static int sx, sy;
+	//brushes
+	static HBRUSH hBrushGreen;
+	//pens
+	static HPEN hPenRed;
+	//timer 
+	static int t = 0;
+	//ball
+	static HRGN hBall;
+	static HRGN hBall1;
+	//offset and speed
+	static int iCurrentOffsetX;
+	static int iCurrentOffsetY;
+	static int iCurrentSpeedX;
+	static int iCurrentSpeedY;
+	static double iCurrentOffsetX1=0;
+	static double iCurrentOffsetY1=0;
+			//0 1 2 3 <=> LeftUp LeftDown RightUp RightDown
+	//wolf directions
+	static bool left, up;
+	static int currentWolf;
+	//shelves options
+	static int currentShelve;
+	int k; //direction of shelf offset
+	//wolf bitmaps
+	HBITMAP hWolfBitmap[WOLF_D];
+	static HDC memBit[WOLF_D];
+	static BITMAP bm[WOLF_D];
+	string WolfBMP[WOLF_D] = { "WolfLeftUp450-420.bmp" ,"WlofLeftDown450-420.bmp" ,"WolfRightUp450-420.bmp" ,"WolfRightDown450-420.bmp" };
+	//score and health
+	static int score;
+	static int health;
+	static float t_test = 0;
+	//TEMP VAR
+	static string stat_str;
+	//
+
+	static int tt=0;
+
+	switch (message)
+	{
+	case WM_SIZE:
+		sx = LOWORD(lParam);
+		sy = HIWORD(lParam);
+		break;
+	case WM_CREATE:
+		//load wolf images
+		for (int i = 0; i < WOLF_D; i++) 
+		{
+			hWolfBitmap[i] = (HBITMAP)LoadImage(NULL, WolfBMP[i].c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+			GetObject(hWolfBitmap[i], sizeof(bm[i]), &bm[i]);
+			hDC = GetDC(hWnd);
+			memBit[i] = CreateCompatibleDC(hDC);
+			SelectObject(memBit[i], hWolfBitmap[i]);
+			ReleaseDC(hWnd, hDC);
+		}
+		//create brushes
+		hBrushGreen = CreateSolidBrush(RGB(0, 255, 0));
+		//create pen
+		hPenRed = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+		//set default wolf directions
+		left = true;
+		up = true;
+		currentWolf = 0;
+		//offset and speed
+		iCurrentOffsetX = 0;
+		//iCurrentSpeedX = 15;
+		iCurrentOffsetY = 0;
+		//iCurrentSpeedY = 4;
+		//set default score and health 
+		score = 0;
+		health = 3;
+		//set default shelve
+		currentShelve = 0;
+
+
+		float a, b, c;
+		iCurrentSpeedX = 15;
+		iCurrentSpeedY = 4;
+		
+
+		//set timer
+		SetTimer(hWnd, 1, INTERVAL, NULL);
+		break;
+	case WM_PAINT:
+		//begin paint
+		hDC = BeginPaint(hWnd, &ps);
+		//draw
+		//set background 
+		SetBkMode(hDC, TRANSPARENT);
+		//draw wolf
+		BitBlt(hDC, (sx + 30 - bm[currentWolf].bmWidth) / 2, sy - bm[currentWolf].bmHeight, bm[currentWolf].bmWidth, bm[currentWolf].bmHeight, memBit[currentWolf], 0, 0, SRCCOPY);
+		//draw shelves
+		DrawShelves(hDC, hPenRed);
+		//draw ball
+		if (currentShelve == 0 || currentShelve == 1)
+			k = 1;
+		else
+			k = -1;
+		hBall = CreateBallRgn(hDC, ShelvesH[currentShelve].first, ShelvesH[currentShelve].second - 10, 0, 10, 0, 0, 0);
+		OffsetRgn(hBall, k * iCurrentOffsetX, iCurrentOffsetY);
+		FillRgn(hDC, hBall, hBrushGreen);
+		if (iCurrentOffsetX - 40 >= LeftUpL.first) 
+		{
+			if (currentWolf == currentShelve)
+				score++;
+			else
+				health--;
+			iCurrentOffsetX = 0;
+			iCurrentOffsetY = 0;
+			srand(time(0));
+			currentShelve = rand() % 4;
+		}
+		hBall1 = CreateBallRgn(hDC, 0, 0, 0, 10, 0, 0, 0);
+		OffsetRgn(hBall1,  iCurrentOffsetX1, iCurrentOffsetY1);
+		FillRgn(hDC, hBall1, hBrushGreen);
+		//TEMP FUNC*************
+		//print stat
+		fillString(stat_str, score, health);
+		TextOut(hDC, 0, 0, stat_str.c_str(), strlen(stat_str.c_str()));
+		//******************
+		//end paint
+		EndPaint(hWnd, &ps);
+		break;
+	case WM_KEYDOWN:
+	{
+		switch (wParam)
+		{
+		case VK_LEFT:
+			if (!left) {
+				left = true;
+				currentWolf = setCurrentWolf(left, up);
+				InvalidateRect(hWnd, NULL, TRUE);
+			}
+			break;
+		case VK_RIGHT:
+			if (left) {
+				left = false;
+				currentWolf = setCurrentWolf(left, up);
+				InvalidateRect(hWnd, NULL, TRUE);
+			}
+			break;
+		case VK_UP:
+			if (!up) {
+				up = true;
+				currentWolf = setCurrentWolf(left, up);
+				InvalidateRect(hWnd, NULL, TRUE);
+			}
+			break;
+		case VK_DOWN:
+			if (up) {
+				up = false;
+				currentWolf = setCurrentWolf(left, up);
+				InvalidateRect(hWnd, NULL, TRUE);
+			}
+			break;
+		}
+		break;
+	}
+	case WM_CLOSE:
+		userReply = MessageBox(hWnd, "Are you sure?", "", MB_YESNO | MB_ICONQUESTION);
+		if (IDYES == userReply)
+		{
+			DestroyWindow(hWnd);
+		}
+		break;
+	case WM_DESTROY:
+		//delete brushes
+		DeleteObject(hBrushGreen);
+		//delete pen
+		DeleteObject(hPenRed);
+		//timer
+		KillTimer(hWnd, 1);
+		PostQuitMessage(0);
+		break;
+	case WM_TIMER:
+		//Offset
+		if (t < 5)
+		{
+			a = v0;
+			b = sin(ALPHA);
+			c = t;
+			iCurrentOffsetX1 = v0*sin(ALPHA)*t_test;
+			iCurrentOffsetY1 = v0*cos(ALPHA)*t_test;
+		}
+		else
+		{
+			iCurrentOffsetX1 = v0 * sin(ALPHA)*t_test;
+			iCurrentOffsetY1 = v0 * cos(ALPHA)*t_test + G * t_test*t_test / 2;
+		}
+		
+		if(tt%25==0)
+		{
+			iCurrentOffsetX += iCurrentSpeedX;
+			iCurrentOffsetY += iCurrentSpeedY;
+			t++;
+		}
+		tt++;
+		t_test+=0.0005;
+		InvalidateRect(hWnd, NULL, TRUE);
+		break;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}
+
+int setCurrentWolf(bool left, bool up)
+{
+	if (left && up)
+		return 0;
+	if (left && !up)
+		return 1;
+	if (!left && up)
+		return 2;
+	if (!left && !up)
+		return 3;
+	/*if (left) {
+		if (up)
+			return 0;
+		else
+			return 1;
+	}
+	else {
+		if (up)
+			return 3;
+		else
+			return 4;
+	}*/
+	return -1;
+}
+
+double RotateX(int x, int y, double angle)
+{
+	return (x * cos(angle) + y * sin(angle));
+}
+double RotateY(int x, int y, double angle)
+{
+	return (-x * sin(angle) + y * cos(angle));
+}
+
+void DrawShelves(HDC &hDC, HPEN hPen) {
+	SelectObject(hDC, hPen);
+	//left up 
+	MoveToEx(hDC,LeftUpH.first, LeftUpH.second, NULL);
+	LineTo(hDC, LeftUpL.first, LeftUpL.second);
+	//left down
+	MoveToEx(hDC, LeftDownH.first, LeftDownH.second, NULL);
+	LineTo(hDC, LeftDownL.first, LeftDownL.second);
+	//right up
+	MoveToEx(hDC, RightUpH.first, RightUpH.second, NULL);
+	LineTo(hDC, RightUpL.first, RightUpL.second);
+	//right down
+	MoveToEx(hDC, RightDownH.first, RightDownH.second, NULL);
+	LineTo(hDC, RightDownL.first, RightDownL.second);
+}
+
+//HRGN& CreateBallRgn(HDC hDC, int x, int y, int width, int height, double angle, int iSpeed, int iTime)
+//{
+//	HRGN hBallBody, hBallSpace;
+//	hBallBody = CreateBallBodyRgn(hDC, x, y, width, height, angle);
+//	hBallSpace = CreateBallSpaceRgn(hDC, x, y, width, height, angle, iSpeed, iTime);
+//	//make finite region	
+//	CombineRgn(hBallBody, hBallBody, hBallSpace, RGN_DIFF);
+//	return hBallBody;
+//}
+
+HRGN& CreateBallRgn(HDC hDC, int x, int y, int width, int height, double angle, int iSpeed, int iTime)
+{
+	HRGN hBall;
+	//begin
+	BeginPath(hDC);
+	//draw wheels
+	//first
+	AngleArc(hDC, x, y, height, 0, 360);
+	CloseFigure(hDC);
+	//end
+	EndPath(hDC);
+	//make region
+	hBall = PathToRegion(hDC);
+	return hBall;
+}
+
+HRGN& CreateBallBodyRgn(HDC hDC, int x, int y, int width, int height, double angle)
+{
+	HRGN hBall;
+	//begin
+	BeginPath(hDC);
+	//draw wheels
+	//first
+	AngleArc(hDC, x, y, height, 0, 360);
+	CloseFigure(hDC);
+	//end
+	EndPath(hDC);
+	//make region
+	hBall = PathToRegion(hDC);
+	return hBall;
+}
+
+HRGN& CreateBallSpaceRgn(HDC hDC, int x, int y, int width, int height, double angle, int iSpeed, int iTime)
+{
+	HRGN hBall;
+	//begin
+	BeginPath(hDC);
+	//draw wheels
+	MoveToEx(hDC, x, y, NULL);
+	//AngleArc(hDC, x, y, height, r_angle, 15);
+	CloseFigure(hDC);
+	//end
+	EndPath(hDC);
+	//make region
+	hBall = PathToRegion(hDC);
+	return hBall;
+}
+
+void fillString(string& str, double x, double y)
+{
+	stringstream stream;
+	stream << "[" << x << "," << y << "]";
+	str = stream.str();
+}
+

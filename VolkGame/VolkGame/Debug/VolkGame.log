@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\volkgame\volkgame\main.cpp(379): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\zhenyamordan\source\repos\volkgame\volkgame\main.cpp(603): warning C4172: returning address of local variable or temporary: hBall
+c:\users\zhenyamordan\source\repos\volkgame\volkgame\main.cpp(619): warning C4172: returning address of local variable or temporary: hBall
+c:\users\zhenyamordan\source\repos\volkgame\volkgame\main.cpp(635): warning C4172: returning address of local variable or temporary: hBall
+  VolkGame.vcxproj -> C:\Users\zhenyamordan\source\repos\VolkGame\Debug\VolkGame.exe
