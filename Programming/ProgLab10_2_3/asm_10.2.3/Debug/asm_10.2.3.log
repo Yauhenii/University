@@ -1,4 +1,0 @@
-﻿  Assembling jo.asm...
-jo.asm(45): warning A4011: multiple .MODEL directives found : .MODEL ignored
-  main.cpp
-  asm_10.2.3.vcxproj -> C:\Users\zhenyamordan\source\repos\asm_10.2.3\Debug\asm_10.2.3.exe

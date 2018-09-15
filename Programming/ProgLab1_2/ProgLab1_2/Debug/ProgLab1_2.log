@@ -1,6 +1,0 @@
-﻿  KWnd.cpp
-  Lesson.cpp
-  main.cpp
-c:\users\zhenyamordan\source\repos\proglab1_2\proglab1_2\main.cpp(88): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  ProgLab1_2.vcxproj -> C:\Users\zhenyamordan\source\repos\ProgLab1_2\Debug\ProgLab1_2.exe
