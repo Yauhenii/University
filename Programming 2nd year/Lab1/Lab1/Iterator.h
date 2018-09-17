@@ -64,10 +64,22 @@ public:
 		++pointer;
 		return *this;
 	}
+	Iterator operator ++(int)
+	{
+		Iterator<T> temp = *this;
+		++*this;
+		return temp;
+	}
 	Iterator& operator --()
 	{
 		--pointer;
 		return *this;
+	}
+	Iterator operator --(int)
+	{
+		Iterator<T> temp = *this;
+		--*this;
+		return temp;
 	}
 };
 

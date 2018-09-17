@@ -67,7 +67,7 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 		case IDC_BUTTON6:
 		{
 			SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
-			for (KQueue<string>::iterator it= queue.beginIt(); it != queue.endIt(); ++it)
+			for (KQueue<string>::iterator it= queue.beginIt(); it != queue.endIt(); it++)
 				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(*it).c_str());
 			return TRUE;
 		}
