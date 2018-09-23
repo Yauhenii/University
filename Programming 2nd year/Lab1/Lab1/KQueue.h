@@ -2,6 +2,7 @@
 #include <iostream>
 #include <initializer_list>
 #include "Iterator.h"
+#include "Visitor.h"
 
 #define DEFAULT_SIZE 10
 
@@ -19,6 +20,11 @@ private:
 	int quantity;
 public:
 	typedef Iterator<T> iterator;
+	//Visitor
+	void accept(Visitor &v) override
+	{
+		v.visit(*this);
+	}
 	//Constructors
 	KQueue(int sz = DEFAULT_SIZE)
 	{

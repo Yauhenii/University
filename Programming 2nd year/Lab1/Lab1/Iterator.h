@@ -25,14 +25,12 @@ public:
 	}
 	//Methods
 	Iterator prev() {
-		Iterator it = *this;
-		--it;
-		return it;
+		this->pointer--;
+		return *this;
 	}
 	Iterator next() {
-		Iterator it = *this;
-		++it;
-		return it;
+		this->pointer++;
+		return *this;
 	}
 	//Operators
 	bool operator ==(const Iterator& it)
