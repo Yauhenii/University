@@ -12,8 +12,8 @@ template< typename M >
 void swap_p(M* , M* );
 
 template<typename T >
-class KQueue: public Element{
-	//friend class Iterator<T>;
+class KQueue: public Element
+{
 private:
 	T * queue, *begin, *end;
 	int size;

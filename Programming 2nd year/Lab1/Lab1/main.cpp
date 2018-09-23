@@ -2,6 +2,7 @@
 #include "resource.h"
 #include "KQueue.h"
 #include <string>
+#include "DoubleValue.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 			return TRUE;
 		case IDC_BUTTON1:
 		{
-			char buff[NMAXCOUNT]="\0";
+			char buff[NMAXCOUNT] = "\0";
 			GetDlgItemText(hWin, IDC_EDIT1, (LPTSTR)buff, NMAXCOUNT);
 			queue.push(string(buff));
 			//queue.emplace(buff);
@@ -67,7 +68,7 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 		case IDC_BUTTON6:
 		{
 			SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
-			for (KQueue<string>::iterator it= queue.beginIt(); it != queue.endIt(); it.next())
+			for (KQueue<string>::iterator it = queue.beginIt(); it != queue.endIt(); it.next())
 				SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(*it).c_str());
 			return TRUE;
 		}
@@ -88,6 +89,12 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 				SetDlgItemText(hWin, IDC_EDIT5, (LPSTR)queue.back().c_str());
 			}
 			return TRUE;
+		case IDC_BUTTON10:
+		{
+			DoubleValue visitor;
+			queue.accept(visitor);
+			return TRUE;
+		}
 		default:
 			return FALSE;
 		}
