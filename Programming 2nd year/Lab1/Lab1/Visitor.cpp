@@ -2,11 +2,3 @@
 
 
 
-Visitor::Visitor()
-{
-}
-
-
-Visitor::~Visitor()
-{
-}

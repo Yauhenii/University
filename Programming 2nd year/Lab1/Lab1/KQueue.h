@@ -2,7 +2,7 @@
 #include <iostream>
 #include <initializer_list>
 #include "Iterator.h"
-#include "Visitor.h"
+#include "Element.h"
 
 #define DEFAULT_SIZE 10
 
@@ -12,7 +12,7 @@ template< typename M >
 void swap_p(M* , M* );
 
 template<typename T >
-class KQueue {
+class KQueue: public Element{
 	//friend class Iterator<T>;
 private:
 	T * queue, *begin, *end;
@@ -23,7 +23,8 @@ public:
 	//Visitor
 	void accept(Visitor &v) override
 	{
-		v.visit(*this);
+		for (int i = 0; i < quantity; i++)
+			v.visit(this->queue[i]);
 	}
 	//Constructors
 	KQueue(int sz = DEFAULT_SIZE)
