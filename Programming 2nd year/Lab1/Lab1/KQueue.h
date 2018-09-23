@@ -285,7 +285,7 @@ public:
 	}
 	Iterator<T> endIt()
 	{
-		return Iterator<T>(this->end + 1);
+		return Iterator<T>(this->end);
 	}
 	//Destructor
 	~KQueue()
