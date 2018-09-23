@@ -56,25 +56,11 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 		case IDC_RADIO1:
 		{
 			TYPE = 0;
-			SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
-			const int arrSize = 5;
-			int arr[arrSize] = { IDC_EDIT1,IDC_EDIT2,IDC_EDIT3,IDC_EDIT4,IDC_EDIT5 };
-			for (int i = 0; i < arrSize; i++)
-			{
-				SetDlgItemText(hWin, arr[arrSize], (LPSTR)" ");
-			}
 			return TRUE;
 		}
 		case IDC_RADIO2:
 		{
 			TYPE = 1;
-			SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
-			const int arrSize = 5;
-			int arr[arrSize] = { IDC_EDIT1,IDC_EDIT2,IDC_EDIT3,IDC_EDIT4,IDC_EDIT5 };
-			for (int i = 0; i < arrSize; i++)
-			{
-				SetDlgItemText(hWin, arr[arrSize], (LPSTR)"");
-			}
 			return TRUE;
 		}
 		case IDC_BUTTON1:
@@ -84,7 +70,6 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 				char buff[NMAXCOUNT] = "\0";
 				GetDlgItemText(hWin, IDC_EDIT1, (LPTSTR)buff, NMAXCOUNT);
 				get<1>(queue).push(string(buff));
-				//queue.emplace(buff);
 			}
 			else
 			{
