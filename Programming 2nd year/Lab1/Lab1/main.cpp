@@ -122,7 +122,7 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 				SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
 				if (!get<1>(queue).isEmpty())
 				{
-					for (KQueue<string>::iterator it = get<1>(queue).beginIt(); it.isDone(); it.next())
+					for (KQueue<string>::iterator it = get<1>(queue).beginIt(); it != get<1>(queue).endIt(); it.next())
 					{
 						SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)(*it).c_str());
 					}
@@ -133,7 +133,7 @@ INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
 				SendMessage(hListBox, LB_RESETCONTENT, 0, 0);
 				if (!get<0>(queue).isEmpty())
 				{
-					for (KQueue<int>::iterator it = get<0>(queue).beginIt(); it.isDone(); it.next())
+					for (KQueue<int>::iterator it = get<0>(queue).beginIt(); it != get<0>(queue).endIt(); it.next())
 					{
 						SendMessage(hListBox, LB_ADDSTRING, 0, (LPARAM)intToString(*it).c_str());
 					}
