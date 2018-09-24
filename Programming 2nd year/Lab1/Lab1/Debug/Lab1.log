@@ -1,5 +1,1 @@
-﻿  DoubleValue.cpp
-c:\users\zhenyamordan\source\repos\university\programming 2nd year\lab1\lab1\doublevalue.h(11): error C2676: binary '*=': 'std::string' does not define this operator or a conversion to a type acceptable to the predefined operator
-  main.cpp
-c:\users\zhenyamordan\source\repos\university\programming 2nd year\lab1\lab1\doublevalue.h(11): error C2676: binary '*=': 'std::string' does not define this operator or a conversion to a type acceptable to the predefined operator
-  Generating Code...
+﻿  Lab1.vcxproj -> C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\Lab1.exe
