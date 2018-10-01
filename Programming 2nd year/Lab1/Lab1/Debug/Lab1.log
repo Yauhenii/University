@@ -1,7 +1,5 @@
 ﻿  DoubleValue.cpp
-  Element.cpp
   main.cpp
   Generating Code...
   LINK : C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\Lab1.exe not found or not built by the last incremental link; performing full link
-Visitor.obj : warning LNK4099: PDB 'vc141.pdb' was not found with 'Visitor.obj' or at 'C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\vc141.pdb'; linking object as if no debug info
   Lab1.vcxproj -> C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\Lab1.exe
