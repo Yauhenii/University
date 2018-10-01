@@ -7,12 +7,10 @@ public:
 	{
 		ref *= 2;
 	}
-	void visit(std::string &ref) override 
-	{
+	void visit(std::string &ref) override {
 		ref = ref + " " + ref;
 	}
-	void visit(double &ref) override 
-	{
+	void visit(double &ref) override {
 		ref *= 2;
 	}
 };

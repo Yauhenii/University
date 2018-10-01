@@ -21,6 +21,9 @@
     <ClCompile Include="Visitor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DoubleValue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Visitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DoubleValue.h">
