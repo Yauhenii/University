@@ -116,13 +116,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DoubleValue.cpp" />
-    <ClCompile Include="Element.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DoubleValue.h" />
-    <ClInclude Include="Element.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="KQueue.h" />
     <ClInclude Include="resource.h" />

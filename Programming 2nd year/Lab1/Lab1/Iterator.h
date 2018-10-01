@@ -24,6 +24,12 @@ public:
 		}
 	}
 	//Methods
+	/*bool isDone() {
+		return pointer == nullptr ? true : false;
+	}
+	T currentItem() {
+		return *pointer;
+	}*/
 	Iterator prev() {
 		this->pointer--;
 		return *this;
