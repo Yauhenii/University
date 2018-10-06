@@ -1,2 +1,0 @@
-#include "DoubleValue.h"
-
