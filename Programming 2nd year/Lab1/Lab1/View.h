@@ -61,7 +61,6 @@ public:
 				{
 					std::stringstream s;
 					s << *it;
-					return;
 					this->addStringListBox((LPARAM)s.str().c_str());
 				}
 			}
@@ -132,8 +131,15 @@ public:
 		GetDlgItemText(hWin, nIDDlgItem, (LPTSTR)buff, NMAXCOUNT);
 		return std::string(buff);
 	}
-	//Operators
-
+	void endView()
+	{
+		int userReply;
+		userReply = MessageBox(hWin, "Are you sure?", "Close", MB_YESNO | MB_ICONQUESTION);
+		if (IDYES == userReply)
+		{
+			EndDialog(hWin, 0);
+		}
+	}
 	//Destructor
 	//~View();
 };
