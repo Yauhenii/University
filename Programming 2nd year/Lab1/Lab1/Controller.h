@@ -6,11 +6,24 @@
 
 class Controller
 {
+private:
+	Model model;
+	View view;
 public:
 	//Constructors
-	Controller()
+	Controller(Model& m, View& v)
 	{
-
+		model = m;
+		view = v;
+	}
+	void act(HINSTANCE hInstance,Model&model, View& view)
+	{
+		DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, &DlgProc);
+	}
+	INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
+	{
+		view.setHWin(hWin);
+		return start(model, view, msg, wParam, lParam);
 	}
 	bool start(Model& model, View& view, UINT msg,WPARAM wParam, LPARAM lParam)
 	{
@@ -59,6 +72,7 @@ public:
 			return FALSE;
 		}
 	}
+private:
 	bool actInit(Model& model, View& view)
 	{
 		view.setListBox(IDC_LIST1);

@@ -14,19 +14,13 @@ using namespace std;
 using namespace std;
 
 
-INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam);
-
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, int nCmdShow)
 {
-	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgProc);
+	View view;
+	Model model;
+	Controller controller(model,view);
+	controller.act(hInstance, model, view);
 	return 0;
 }
-INT_PTR CALLBACK DlgProc(HWND hWin, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-	static View view;
-	view.setHWin(hWin);
-	static Model model;
-	static Controller controller;
-	return controller.start(model, view, msg, wParam, lParam);
-}
+
 
