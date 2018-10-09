@@ -1,5 +1,4 @@
-﻿  DoubleValue.cpp
-  Element.cpp
+﻿  Controller.cpp
+  main.cpp
   Generating Code...
-  LINK : C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\Lab1.exe not found or not built by the last incremental link; performing full link
   Lab1.vcxproj -> C:\Users\zhenyamordan\source\repos\University\Programming 2nd year\Lab1\Debug\Lab1.exe
