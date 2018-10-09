@@ -14,11 +14,6 @@ private:
 public:
 	typedef KQueue<int>::iterator iteratorInt;
 	typedef KQueue<std::string>::iterator iteratorString;
-	//Constructors
-	Model()
-	{
-
-	}
 	//Methods
 	void setType(int iType)
 	{
@@ -128,16 +123,10 @@ public:
 	{
 		return queue.second.endIt();
 	}
-	void accept(int type, Visitor& v)
+	void accept(Visitor& v)
 	{
-		if (type == STRING_CONST)
-		{
-			queue.second.accept(v);
-		}
-		else
-		{
-			queue.first.accept(v);
-		}
+		queue.second.accept(v);
+		queue.first.accept(v);
 	}
 	void push(int value)
 	{
