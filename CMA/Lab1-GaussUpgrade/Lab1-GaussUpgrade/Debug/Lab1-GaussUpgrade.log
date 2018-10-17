@@ -1,0 +1,5 @@
+﻿  Lab1-GaussUpgrade.cpp
+c:\users\zhenyamordan\source\repos\cma\lab1-gaussupgrade\lab1-gaussupgrade\lab1-gaussupgrade.cpp(63): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab1-gaussupgrade\lab1-gaussupgrade\lab1-gaussupgrade.cpp(68): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab1-gaussupgrade\lab1-gaussupgrade\lab1-gaussupgrade.cpp(177): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Lab1-GaussUpgrade.vcxproj -> C:\Users\zhenyamordan\source\repos\CMA\Lab1-GaussUpgrade\Debug\Lab1-GaussUpgrade.exe

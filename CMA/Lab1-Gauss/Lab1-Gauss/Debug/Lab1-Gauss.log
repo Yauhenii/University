@@ -1,0 +1,6 @@
+﻿  Lab1-Gauss.cpp
+c:\users\zhenyamordan\source\repos\cma\lab1-gauss\lab1-gauss\lab1-gauss.cpp(82): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab1-gauss\lab1-gauss\lab1-gauss.cpp(87): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab1-gauss\lab1-gauss\lab1-gauss.cpp(96): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab1-gauss\lab1-gauss\lab1-gauss.cpp(182): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Lab1-Gauss.vcxproj -> C:\Users\zhenyamordan\source\repos\CMA\Lab1-Gauss\Debug\Lab1-Gauss.exe

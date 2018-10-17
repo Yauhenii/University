@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\zhenyamordan\source\repos\cma\lab2-ldlt\lab2-ldlt\main.cpp(36): error C2955: 'std::tuple': use of class template requires template argument list
+  c:\program files\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.13.26128\include\utility(88): note: see declaration of 'std::tuple'
+c:\users\zhenyamordan\source\repos\cma\lab2-ldlt\lab2-ldlt\main.cpp(36): warning C4091: '': ignored on left of 'std::tuple' when no variable is declared
+c:\users\zhenyamordan\source\repos\cma\lab2-ldlt\lab2-ldlt\main.cpp(89): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab2-ldlt\lab2-ldlt\main.cpp(96): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\zhenyamordan\source\repos\cma\lab2-ldlt\lab2-ldlt\main.cpp(106): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
